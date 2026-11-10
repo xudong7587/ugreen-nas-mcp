@@ -1,6 +1,6 @@
 {
   "name": "codex-ugreen-nas",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "private": true,
   "type": "module",
   "description": "Local MCP adapter for the official UGREEN NAS CLI",
@@ -14,6 +14,7 @@
   },
   "scripts": {
     "start": "node server.mjs",
+    "connect": "node scripts/connect.mjs",
     "test": "node --test test/*.test.mjs",
     "check": "node scripts/check.mjs"
   },
