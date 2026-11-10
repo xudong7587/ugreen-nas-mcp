@@ -1,0 +1,1350 @@
+{
+  "schemaVersion": 1,
+  "cliVersion": "0.1.61",
+  "source": "Official unc --help; generated offline without NAS requests or authentication access.",
+  "globalFlags": {
+    "client-id": {
+      "type": "string"
+    },
+    "client-secret": {
+      "type": "string"
+    },
+    "debug": {
+      "type": "bool"
+    },
+    "dry-run": {
+      "type": "bool"
+    },
+    "format": {
+      "type": "string",
+      "short": "f"
+    },
+    "help": {
+      "type": "bool",
+      "short": "h"
+    },
+    "output": {
+      "type": "string",
+      "short": "o"
+    },
+    "server-url": {
+      "type": "string"
+    },
+    "timeout": {
+      "type": "int"
+    },
+    "token": {
+      "type": "string"
+    },
+    "verbose": {
+      "type": "bool",
+      "short": "v"
+    },
+    "yes": {
+      "type": "bool",
+      "short": "y"
+    }
+  },
+  "sharedFlags": {
+    "stream-timeout": {
+      "type": "int"
+    }
+  },
+  "helpCommands": [
+    "app",
+    "app get",
+    "app install",
+    "app ls",
+    "app search",
+    "app start",
+    "app status",
+    "app stop",
+    "app uninstall",
+    "app update",
+    "ctl",
+    "ctl group",
+    "ctl group add-member",
+    "ctl group ls",
+    "ctl hardware",
+    "ctl hardware beep",
+    "ctl hardware cpu",
+    "ctl hardware fan",
+    "ctl hardware led",
+    "ctl hardware power",
+    "ctl hardware ups",
+    "ctl hardware zram",
+    "ctl os",
+    "ctl os identity",
+    "ctl os update-status",
+    "ctl user",
+    "ctl user create",
+    "ctl user ls",
+    "docker",
+    "docker compose",
+    "docker compose delete",
+    "docker compose logs",
+    "docker compose ls",
+    "docker compose restart",
+    "docker compose start",
+    "docker compose stop",
+    "docker compose up",
+    "docker dir-check",
+    "docker gpu-check",
+    "docker images",
+    "docker logs",
+    "docker port-check",
+    "docker ps",
+    "docker pull",
+    "docker rebuild",
+    "docker restart",
+    "docker search",
+    "docker start",
+    "docker stats",
+    "docker stop",
+    "doctor",
+    "download",
+    "download create",
+    "download ls",
+    "download pause",
+    "download resume",
+    "download retry",
+    "download rm",
+    "download status",
+    "file",
+    "file cat",
+    "file cp",
+    "file download",
+    "file du",
+    "file find",
+    "file getfattr",
+    "file ls",
+    "file ls-root",
+    "file md5sum",
+    "file mkdir",
+    "file mkdir-share",
+    "file mv",
+    "file quota",
+    "file quota get",
+    "file quota set",
+    "file recover-recycle",
+    "file rm",
+    "file sha256sum",
+    "file stat",
+    "file tag",
+    "file tag add",
+    "file tag delete",
+    "file tag file",
+    "file tag file add",
+    "file tag file delete",
+    "file tag file get",
+    "file tag file list",
+    "file tag filter",
+    "file tag get",
+    "file tag list",
+    "file tee",
+    "file touch",
+    "file upload",
+    "network",
+    "network general",
+    "network iface",
+    "network iface ls",
+    "search",
+    "search cancel",
+    "search results",
+    "search rm",
+    "search title",
+    "storage",
+    "storage disk",
+    "storage disk ls",
+    "storage disk smart",
+    "storage pool",
+    "storage pool ls",
+    "storage volume",
+    "storage volume ls",
+    "taskmgr",
+    "taskmgr cpu",
+    "taskmgr disk",
+    "taskmgr gpu",
+    "taskmgr mem",
+    "taskmgr net",
+    "taskmgr overview",
+    "taskmgr process",
+    "taskmgr process ls",
+    "taskmgr service",
+    "taskmgr service ls",
+    "taskmgr volume"
+  ],
+  "commands": {
+    "app get": {
+      "usage": "unc app get APP_ID [flags]",
+      "flags": {
+        "include-hidden": {
+          "type": "bool"
+        }
+      }
+    },
+    "app install": {
+      "usage": "unc app install APP_ID... [flags]",
+      "flags": {
+        "no-start": {
+          "type": "bool"
+        },
+        "param": {
+          "type": "stringArray"
+        },
+        "param-multi": {
+          "type": "stringArray"
+        },
+        "params-json": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "set-default-path": {
+          "type": "bool"
+        },
+        "wait-timeout": {
+          "type": "duration"
+        }
+      }
+    },
+    "app ls": {
+      "usage": "unc app ls [flags]",
+      "flags": {
+        "configurable": {
+          "type": "bool"
+        },
+        "id": {
+          "type": "strings"
+        },
+        "include-hidden": {
+          "type": "bool"
+        },
+        "installed": {
+          "type": "bool"
+        },
+        "not-installed": {
+          "type": "bool"
+        },
+        "repair-needed": {
+          "type": "bool"
+        },
+        "update-available": {
+          "type": "bool"
+        }
+      }
+    },
+    "app search": {
+      "usage": "unc app search KEYWORD [flags]",
+      "flags": {
+        "installed": {
+          "type": "bool"
+        },
+        "sub-apps": {
+          "type": "bool"
+        }
+      }
+    },
+    "app start": {
+      "usage": "unc app start APP_ID... [flags]",
+      "flags": {}
+    },
+    "app status": {
+      "usage": "unc app status APP_ID... [flags]",
+      "flags": {}
+    },
+    "app stop": {
+      "usage": "unc app stop APP_ID... [flags]",
+      "flags": {}
+    },
+    "app uninstall": {
+      "usage": "unc app uninstall APP_ID... [flags]",
+      "flags": {
+        "clean": {
+          "type": "bool"
+        },
+        "user-data": {
+          "type": "stringArray"
+        },
+        "wait-timeout": {
+          "type": "duration"
+        }
+      }
+    },
+    "app update": {
+      "usage": "unc app update APP_ID... [flags]",
+      "flags": {
+        "no-start": {
+          "type": "bool"
+        },
+        "wait-timeout": {
+          "type": "duration"
+        }
+      }
+    },
+    "ctl group add-member": {
+      "usage": "unc ctl group add-member GID UID:USERNAME... [flags]",
+      "flags": {}
+    },
+    "ctl group ls": {
+      "usage": "unc ctl group ls [flags]",
+      "flags": {}
+    },
+    "ctl hardware beep": {
+      "usage": "unc ctl hardware beep [flags]",
+      "flags": {}
+    },
+    "ctl hardware cpu": {
+      "usage": "unc ctl hardware cpu [flags]",
+      "flags": {}
+    },
+    "ctl hardware fan": {
+      "usage": "unc ctl hardware fan [flags]",
+      "flags": {}
+    },
+    "ctl hardware led": {
+      "usage": "unc ctl hardware led [flags]",
+      "flags": {}
+    },
+    "ctl hardware power": {
+      "usage": "unc ctl hardware power [flags]",
+      "flags": {}
+    },
+    "ctl hardware ups": {
+      "usage": "unc ctl hardware ups [flags]",
+      "flags": {}
+    },
+    "ctl hardware zram": {
+      "usage": "unc ctl hardware zram [flags]",
+      "flags": {}
+    },
+    "ctl os identity": {
+      "usage": "unc ctl os identity [flags]",
+      "flags": {}
+    },
+    "ctl os update-status": {
+      "usage": "unc ctl os update-status [flags]",
+      "flags": {}
+    },
+    "ctl user create": {
+      "usage": "unc ctl user create USERNAME [flags]",
+      "flags": {
+        "deny-change-password": {
+          "type": "bool"
+        },
+        "description": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "force-change-password": {
+          "type": "bool"
+        },
+        "group": {
+          "type": "stringArray"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "password-stdin": {
+          "type": "bool"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string"
+        }
+      }
+    },
+    "ctl user ls": {
+      "usage": "unc ctl user ls [flags]",
+      "flags": {
+        "keyword": {
+          "type": "string"
+        },
+        "keyword-in": {
+          "type": "string"
+        },
+        "name": {
+          "type": "stringArray"
+        },
+        "page": {
+          "type": "uint32"
+        },
+        "page-size": {
+          "type": "uint32"
+        },
+        "reverse": {
+          "type": "bool"
+        },
+        "role": {
+          "type": "string"
+        },
+        "uid": {
+          "type": "uints"
+        }
+      }
+    },
+    "docker compose delete": {
+      "usage": "unc docker compose delete PROJECT [flags]",
+      "flags": {
+        "delete-images": {
+          "type": "bool"
+        }
+      }
+    },
+    "docker compose logs": {
+      "usage": "unc docker compose logs PROJECT [flags]",
+      "flags": {}
+    },
+    "docker compose ls": {
+      "usage": "unc docker compose ls [flags]",
+      "flags": {
+        "app-only": {
+          "type": "bool"
+        },
+        "name": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "ordinary-only": {
+          "type": "bool"
+        },
+        "sort-by": {
+          "type": "string"
+        },
+        "status": {
+          "type": "strings"
+        },
+        "update-available": {
+          "type": "bool"
+        }
+      }
+    },
+    "docker compose restart": {
+      "usage": "unc docker compose restart PROJECT [flags]",
+      "flags": {}
+    },
+    "docker compose start": {
+      "usage": "unc docker compose start PROJECT [flags]",
+      "flags": {}
+    },
+    "docker compose stop": {
+      "usage": "unc docker compose stop PROJECT [flags]",
+      "flags": {}
+    },
+    "docker compose up": {
+      "usage": "unc docker compose up [flags]",
+      "flags": {
+        "content": {
+          "type": "string"
+        },
+        "from-file": {
+          "type": "string"
+        },
+        "latest-images": {
+          "type": "bool"
+        },
+        "name": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "run": {
+          "type": "bool"
+        }
+      }
+    },
+    "docker dir-check": {
+      "usage": "unc docker dir-check DIR [flags]",
+      "flags": {}
+    },
+    "docker gpu-check": {
+      "usage": "unc docker gpu-check --vendor amd|intel|nvidia [flags]",
+      "flags": {
+        "vendor": {
+          "type": "string"
+        }
+      }
+    },
+    "docker images": {
+      "usage": "unc docker images [flags]",
+      "flags": {
+        "name": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "sort-by": {
+          "type": "string"
+        },
+        "status": {
+          "type": "strings"
+        }
+      }
+    },
+    "docker logs": {
+      "usage": "unc docker logs CONTAINER_ID [flags]",
+      "flags": {
+        "raw": {
+          "type": "bool"
+        }
+      }
+    },
+    "docker port-check": {
+      "usage": "unc docker port-check PORT [flags]",
+      "flags": {
+        "protocol": {
+          "type": "string"
+        }
+      }
+    },
+    "docker ps": {
+      "usage": "unc docker ps [flags]",
+      "flags": {
+        "name": {
+          "type": "string"
+        },
+        "order": {
+          "type": "string"
+        },
+        "page": {
+          "type": "int"
+        },
+        "page-size": {
+          "type": "int"
+        },
+        "sort-by": {
+          "type": "string"
+        },
+        "status": {
+          "type": "strings"
+        },
+        "type": {
+          "type": "strings"
+        },
+        "update-state": {
+          "type": "strings"
+        }
+      }
+    },
+    "docker pull": {
+      "usage": "unc docker pull IMAGE_REF [flags]",
+      "flags": {}
+    },
+    "docker rebuild": {
+      "usage": "unc docker rebuild APP_ID [flags]",
+      "flags": {
+        "param": {
+          "type": "stringArray"
+        },
+        "param-multi": {
+          "type": "stringArray"
+        },
+        "param-path": {
+          "type": "stringArray"
+        },
+        "params-json": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        }
+      }
+    },
+    "docker restart": {
+      "usage": "unc docker restart CONTAINER_ID... [flags]",
+      "flags": {}
+    },
+    "docker search": {
+      "usage": "unc docker search IMAGE_NAME [flags]",
+      "flags": {
+        "page": {
+          "type": "int"
+        },
+        "page-size": {
+          "type": "int"
+        }
+      }
+    },
+    "docker start": {
+      "usage": "unc docker start CONTAINER_ID... [flags]",
+      "flags": {}
+    },
+    "docker stats": {
+      "usage": "unc docker stats [APP_ID...] [flags]",
+      "flags": {}
+    },
+    "docker stop": {
+      "usage": "unc docker stop CONTAINER_ID... [flags]",
+      "flags": {}
+    },
+    "doctor": {
+      "usage": "unc doctor [flags]",
+      "flags": {
+        "offline": {
+          "type": "bool"
+        },
+        "strict": {
+          "type": "bool"
+        }
+      }
+    },
+    "download create": {
+      "usage": "unc download create URL [flags]",
+      "flags": {
+        "dir": {
+          "type": "string"
+        }
+      }
+    },
+    "download ls": {
+      "usage": "unc download ls [flags]",
+      "flags": {}
+    },
+    "download pause": {
+      "usage": "unc download pause [TASK_ID...] [flags]",
+      "flags": {
+        "all": {
+          "type": "bool"
+        }
+      }
+    },
+    "download resume": {
+      "usage": "unc download resume [TASK_ID...] [flags]",
+      "flags": {
+        "all": {
+          "type": "bool"
+        }
+      }
+    },
+    "download retry": {
+      "usage": "unc download retry [TASK_ID...] [flags]",
+      "flags": {
+        "all": {
+          "type": "bool"
+        }
+      }
+    },
+    "download rm": {
+      "usage": "unc download rm [TASK_ID...] [flags]",
+      "flags": {
+        "all": {
+          "type": "bool"
+        }
+      }
+    },
+    "download status": {
+      "usage": "unc download status TASK_ID... [flags]",
+      "flags": {}
+    },
+    "file cat": {
+      "usage": "unc file cat PATH [PATH...] [flags]",
+      "flags": {
+        "chunk-size": {
+          "type": "int"
+        },
+        "length": {
+          "type": "int"
+        },
+        "offset": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file cp": {
+      "usage": "unc file cp SRC DST [flags]",
+      "flags": {
+        "no-clobber": {
+          "type": "bool",
+          "short": "n"
+        },
+        "on-conflict": {
+          "type": "string"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file download": {
+      "usage": "unc file download REMOTE_PATH [LOCAL_PATH] [flags]",
+      "flags": {
+        "continue": {
+          "type": "bool"
+        },
+        "force": {
+          "type": "bool"
+        },
+        "offset": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file du": {
+      "usage": "unc file du PATH [PATH...] [-d N] [flags]",
+      "flags": {
+        "category": {
+          "type": "strings"
+        },
+        "extension": {
+          "type": "strings"
+        },
+        "skip-hard-links": {
+          "type": "bool"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file find": {
+      "usage": "unc file find ROOT_PATH [ROOT_PATH...] [flags]",
+      "flags": {
+        "category": {
+          "type": "string"
+        },
+        "limit": {
+          "type": "int"
+        },
+        "max-size": {
+          "type": "string"
+        },
+        "maxdepth": {
+          "type": "int"
+        },
+        "min-size": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "since": {
+          "type": "int"
+        },
+        "time": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "until": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file getfattr": {
+      "usage": "unc file getfattr PATH [PATH...] [flags]",
+      "flags": {
+        "dump": {
+          "type": "bool",
+          "short": "d"
+        },
+        "name": {
+          "type": "string",
+          "short": "n"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file ls": {
+      "usage": "unc file ls [PATH...] [flags]",
+      "flags": {
+        "limit": {
+          "type": "int"
+        },
+        "recursive": {
+          "type": "bool",
+          "short": "R"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file ls-root": {
+      "usage": "unc file ls-root (PATH | --root TYPE) [flags]",
+      "flags": {
+        "access-recycle": {
+          "type": "bool"
+        },
+        "action": {
+          "type": "string"
+        },
+        "as-dir": {
+          "type": "bool"
+        },
+        "category": {
+          "type": "strings"
+        },
+        "data-type": {
+          "type": "string"
+        },
+        "extension": {
+          "type": "strings"
+        },
+        "file-type": {
+          "type": "strings"
+        },
+        "intranet-share-id": {
+          "type": "uint"
+        },
+        "limit": {
+          "type": "int"
+        },
+        "page": {
+          "type": "int"
+        },
+        "permission": {
+          "type": "string"
+        },
+        "reverse": {
+          "type": "bool",
+          "short": "r"
+        },
+        "root": {
+          "type": "string"
+        },
+        "shield-recycle": {
+          "type": "bool"
+        },
+        "show-dir": {
+          "type": "bool"
+        },
+        "sort": {
+          "type": "string"
+        },
+        "tag-filter": {
+          "type": "strings"
+        },
+        "top-path": {
+          "type": "string"
+        },
+        "volume": {
+          "type": "strings"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file md5sum": {
+      "usage": "unc file md5sum PATH [PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file mkdir": {
+      "usage": "unc file mkdir PATH [PATH...] [flags]",
+      "flags": {
+        "mode": {
+          "type": "string",
+          "short": "m"
+        },
+        "parents": {
+          "type": "bool",
+          "short": "p"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file mkdir-share": {
+      "usage": "unc file mkdir-share PATH [flags]",
+      "flags": {
+        "allow-only-admin-recycle": {
+          "type": "bool"
+        },
+        "enable-recycle": {
+          "type": "bool"
+        },
+        "name": {
+          "type": "string"
+        },
+        "network-places-hide": {
+          "type": "bool"
+        },
+        "no-permission-hide": {
+          "type": "bool"
+        },
+        "quota-bytes": {
+          "type": "uint"
+        },
+        "quota-unit": {
+          "type": "int32"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file mv": {
+      "usage": "unc file mv SRC DST [flags]",
+      "flags": {
+        "no-clobber": {
+          "type": "bool",
+          "short": "n"
+        },
+        "on-conflict": {
+          "type": "string"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file quota get": {
+      "usage": "unc file quota get PATH [PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file quota set": {
+      "usage": "unc file quota set PATH [PATH...] [flags]",
+      "flags": {
+        "quota-mb": {
+          "type": "uint"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file recover-recycle": {
+      "usage": "unc file recover-recycle RECYCLE_PATH [RECYCLE_PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file rm": {
+      "usage": "unc file rm PATH [PATH...] [flags]",
+      "flags": {
+        "permanent": {
+          "type": "bool"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file sha256sum": {
+      "usage": "unc file sha256sum PATH [PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file stat": {
+      "usage": "unc file stat PATH [PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag add": {
+      "usage": "unc file tag add NAME [NAME...] [flags]",
+      "flags": {
+        "color": {
+          "type": "string"
+        },
+        "shortcut": {
+          "type": "string"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag delete": {
+      "usage": "unc file tag delete TAG_ID [TAG_ID...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag file add": {
+      "usage": "unc file tag file add TAG_ID PATH [PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag file delete": {
+      "usage": "unc file tag file delete TAG_ID PATH [PATH...] [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag file get": {
+      "usage": "unc file tag file get PATH [PATH...] [flags]",
+      "flags": {
+        "user-id": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag file list": {
+      "usage": "unc file tag file list TAG_ID [TAG_ID...] [flags]",
+      "flags": {
+        "path": {
+          "type": "strings"
+        },
+        "recursive": {
+          "type": "bool",
+          "short": "R"
+        },
+        "user-name": {
+          "type": "string"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag filter": {
+      "usage": "unc file tag filter TAG_ID [TAG_ID...] [flags]",
+      "flags": {
+        "path": {
+          "type": "strings"
+        },
+        "recursive": {
+          "type": "bool",
+          "short": "R"
+        },
+        "user-name": {
+          "type": "string"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag get": {
+      "usage": "unc file tag get VALUE [VALUE...] [flags]",
+      "flags": {
+        "id": {
+          "type": "bool"
+        },
+        "name": {
+          "type": "bool"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tag list": {
+      "usage": "unc file tag list [flags]",
+      "flags": {
+        "user-id": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file tee": {
+      "usage": "unc file tee PATH [flags]",
+      "flags": {
+        "append": {
+          "type": "bool",
+          "short": "a"
+        },
+        "base64": {
+          "type": "bool"
+        },
+        "content": {
+          "type": "string"
+        },
+        "from-file": {
+          "type": "string"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "offset": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file touch": {
+      "usage": "unc file touch PATH [PATH...] [flags]",
+      "flags": {
+        "atime": {
+          "type": "int"
+        },
+        "base64": {
+          "type": "bool"
+        },
+        "content": {
+          "type": "string"
+        },
+        "exclusive": {
+          "type": "bool"
+        },
+        "mode": {
+          "type": "string"
+        },
+        "mtime": {
+          "type": "int"
+        },
+        "stamp": {
+          "type": "string",
+          "short": "t"
+        },
+        "timestamp": {
+          "type": "int"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "file upload": {
+      "usage": "unc file upload LOCAL_FILE REMOTE_PATH [flags]",
+      "flags": {
+        "on-conflict": {
+          "type": "string"
+        },
+        "verify": {
+          "type": "bool"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "network general": {
+      "usage": "unc network general [flags]",
+      "flags": {}
+    },
+    "network iface ls": {
+      "usage": "unc network iface ls [IFACE] [flags]",
+      "flags": {}
+    },
+    "search cancel": {
+      "usage": "unc search cancel TASK_ID [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "search results": {
+      "usage": "unc search results TASK_ID [flags]",
+      "flags": {
+        "limit": {
+          "type": "int"
+        },
+        "offset": {
+          "type": "int"
+        },
+        "order": {
+          "type": "string"
+        },
+        "sort-by": {
+          "type": "strings"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "search rm": {
+      "usage": "unc search rm TASK_ID [flags]",
+      "flags": {},
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "search title": {
+      "usage": "unc search title [QUERY] [flags]",
+      "flags": {
+        "accessed-from": {
+          "type": "int"
+        },
+        "accessed-to": {
+          "type": "int"
+        },
+        "class": {
+          "type": "strings"
+        },
+        "created-from": {
+          "type": "int"
+        },
+        "created-to": {
+          "type": "int"
+        },
+        "exclude-class": {
+          "type": "strings"
+        },
+        "exclude-exact-path": {
+          "type": "stringArray"
+        },
+        "exclude-path": {
+          "type": "stringArray"
+        },
+        "keep": {
+          "type": "bool"
+        },
+        "limit": {
+          "type": "int"
+        },
+        "max-results": {
+          "type": "int"
+        },
+        "max-size": {
+          "type": "string"
+        },
+        "min-size": {
+          "type": "string"
+        },
+        "modified-from": {
+          "type": "int"
+        },
+        "modified-to": {
+          "type": "int"
+        },
+        "order": {
+          "type": "string"
+        },
+        "path": {
+          "type": "stringArray"
+        },
+        "recursive": {
+          "type": "bool",
+          "short": "R"
+        },
+        "sort-by": {
+          "type": "strings"
+        },
+        "stream": {
+          "type": "bool"
+        },
+        "suffix": {
+          "type": "string"
+        },
+        "tag-id": {
+          "type": "strings"
+        }
+      },
+      "inheritedFlags": [
+        "stream-timeout"
+      ]
+    },
+    "storage disk ls": {
+      "usage": "unc storage disk ls [flags]",
+      "flags": {
+        "lang": {
+          "type": "string"
+        },
+        "show-serial": {
+          "type": "bool"
+        }
+      }
+    },
+    "storage disk smart": {
+      "usage": "unc storage disk smart [flags]",
+      "flags": {
+        "show-serial": {
+          "type": "bool"
+        }
+      }
+    },
+    "storage pool ls": {
+      "usage": "unc storage pool ls [flags]",
+      "flags": {}
+    },
+    "storage volume ls": {
+      "usage": "unc storage volume ls [flags]",
+      "flags": {}
+    },
+    "taskmgr cpu": {
+      "usage": "unc taskmgr cpu [flags]",
+      "flags": {}
+    },
+    "taskmgr disk": {
+      "usage": "unc taskmgr disk [flags]",
+      "flags": {
+        "interval": {
+          "type": "int32"
+        }
+      }
+    },
+    "taskmgr gpu": {
+      "usage": "unc taskmgr gpu [flags]",
+      "flags": {}
+    },
+    "taskmgr mem": {
+      "usage": "unc taskmgr mem [flags]",
+      "flags": {}
+    },
+    "taskmgr net": {
+      "usage": "unc taskmgr net [flags]",
+      "flags": {}
+    },
+    "taskmgr overview": {
+      "usage": "unc taskmgr overview [flags]",
+      "flags": {}
+    },
+    "taskmgr process ls": {
+      "usage": "unc taskmgr process ls [flags]",
+      "flags": {
+        "sort": {
+          "type": "string"
+        },
+        "top": {
+          "type": "int"
+        }
+      }
+    },
+    "taskmgr service ls": {
+      "usage": "unc taskmgr service ls [flags]",
+      "flags": {
+        "sort": {
+          "type": "string"
+        },
+        "top": {
+          "type": "int"
+        }
+      }
+    },
+    "taskmgr volume": {
+      "usage": "unc taskmgr volume [flags]",
+      "flags": {
+        "interval": {
+          "type": "int32"
+        }
+      }
+    }
+  }
+}

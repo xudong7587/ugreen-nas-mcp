@@ -41,17 +41,22 @@ async function invalid(client, name, args) {
   assert.equal(result.isError, true, `${name} should reject invalid arguments`);
 }
 
-test('the catalog exposes eight named tools with accurate read/write annotations', async t => {
+test('the catalog exposes query and mutation tools with accurate read/write annotations', async t => {
   const { client, calls } = await connect(t);
   const { tools } = await client.listTools();
   assert.deepEqual(tools.map(tool => tool.name).sort(), [
+    'ugreen_cli_help', 'ugreen_copy_file', 'ugreen_create_directory', 'ugreen_create_file', 'ugreen_delete_file',
     'ugreen_connection_status', 'ugreen_download_file', 'ugreen_file_stat',
-    'ugreen_list_files', 'ugreen_nas_info', 'ugreen_read_file', 'ugreen_search',
-    'ugreen_search_results',
-  ]);
+    'ugreen_execute', 'ugreen_list_files', 'ugreen_move_file', 'ugreen_nas_info', 'ugreen_read_file',
+    'ugreen_restore_file', 'ugreen_search', 'ugreen_search_results', 'ugreen_upload_file', 'ugreen_write_file',
+  ].sort());
+  const readOnlyTools = new Set(['ugreen_cli_help', 'ugreen_connection_status', 'ugreen_file_stat',
+    'ugreen_list_files', 'ugreen_nas_info', 'ugreen_read_file', 'ugreen_search', 'ugreen_search_results']);
+  const destructiveTools = new Set(['ugreen_execute', 'ugreen_copy_file', 'ugreen_create_file',
+    'ugreen_delete_file', 'ugreen_move_file', 'ugreen_upload_file', 'ugreen_write_file']);
   for (const tool of tools) {
-    assert.equal(tool.annotations.readOnlyHint, tool.name !== 'ugreen_download_file', tool.name);
-    assert.equal(tool.annotations.destructiveHint, false, tool.name);
+    assert.equal(tool.annotations.readOnlyHint, readOnlyTools.has(tool.name), tool.name);
+    assert.equal(tool.annotations.destructiveHint, destructiveTools.has(tool.name), tool.name);
     assert.equal(tool.inputSchema.additionalProperties, false, tool.name);
   }
   assert.equal(calls.length, 0, 'discovering tools must not contact the NAS');

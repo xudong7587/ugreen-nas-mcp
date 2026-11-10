@@ -11,6 +11,11 @@ const transport = new StdioClientTransport({
 try {
   await client.connect(transport);
   const { tools } = await client.listTools();
+  for (const name of ['ugreen_upload_file', 'ugreen_write_file', 'ugreen_delete_file', 'ugreen_execute']) {
+    if (!tools.some(tool => tool.name === name && tool.annotations?.readOnlyHint === false)) {
+      throw new Error(`写工具未正确加载：${name}`);
+    }
+  }
   const statusResult = await client.callTool({ name: 'ugreen_connection_status', arguments: { check: true } });
   const status = JSON.parse(statusResult.content[0].text);
   if (statusResult.isError || !status.authenticated || status.opencli?.connected !== true) {
@@ -26,7 +31,9 @@ try {
     roots[root] = { returned: list.files.length, total: list.total };
   }
   // Deliberately report counts only; keep NAS names, paths and credentials out of logs.
-  console.log(JSON.stringify({ mcp: 'ok', tools: tools.length, nas_connected: true, roots }, null, 2));
+  console.log(JSON.stringify({ mcp: 'ok', tools: tools.length,
+    write_capable_tools: tools.filter(tool => tool.annotations?.readOnlyHint === false).length,
+    nas_connected: true, roots }, null, 2));
 } catch (error) {
   console.error(error.message);
   process.exitCode = 1;
