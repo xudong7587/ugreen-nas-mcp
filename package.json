@@ -1,0 +1,24 @@
+{
+  "name": "codex-ugreen-nas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local MCP adapter for the official UGREEN NAS CLI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xudong7587/ugreen-nas-mcp.git"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "check": "node scripts/check.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "4.6.7"
+  }
+}
